@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Оптовые поставки СИП, СПЭ и ЖБ-опор по СЗФО | Аттестация Россетей</title>
+  <meta name="description" content="Склад в Санкт-Петербурге. СИП, СПЭ, ЖБ-опоры, арматура. Отгрузка в день оплаты. Аттестация Россетей. Запросить КП онлайн." />
+  <link rel="icon" href="/assets/favicon.ico" />
+  <meta name="theme-color" content="#1f3b5c" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Оптовые поставки СИП, СПЭ и ЖБ-опор по СЗФО" />
+  <meta property="og:description" content="Склад в Санкт-Петербурге. Отгрузка в день оплаты. Аттестация Россетей." />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://example.ru/" />
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Акрон Техникс (пример)",
+    "url":"https://example.ru",
+    "logo":"https://example.ru/assets/logo-akron.svg",
+    "telephone":"+7 (800) 000-00-00",
+    "email":"sales@example.ru",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Санкт-Петербург",
+      "streetAddress":"ул. Примерная, д. 1",
+      "postalCode":"190000",
+      "addressCountry":"RU"
+    },
+    "sameAs":[
+      "https://t.me/yourchannel",
+      "https://vk.com/yourpage"
+    ]
+  }
+  </script>
+
+  <style>
+    /* --------- ДИЗАЙН-ТОКЕНЫ --------- */
+    :root{
+      --bg:#f6f8fb;
+      --surface:#ffffff;
+      --text:#1a1a1a;
+      --muted:#5a6b7c;
+      --line:#e6ebf2;
+      --primary:#1f3b5c; /* индустриальный темно-синий */
+      --accent:#ff7a00;  /* контраст для CTA */
+      --ok:#1a8f3a;
+      --error:#d12c2c;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --radius:12px;
+      --container:1140px; /* контентная часть */
+      --maxpage:1440px;   /* ширина макета */
+      --gutter:24px;
+      --duration:.35s;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    body{
+      font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue","Noto Sans",Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      overflow-x:hidden;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:100%; max-width:var(--container); margin:0 auto; padding:0 var(--gutter); }
+    /* --------- 12-КОЛОНОЧНАЯ СЕТКА --------- */
+    .row{ display:grid; grid-template-columns:repeat(12,1fr); gap:24px; }
+    [class^="col-"]{ min-width:0; }
+    .col-12{ grid-column:span 12; }
+    .col-6{ grid-column:span 6; }
+    .col-4{ grid-column:span 4; }
+    .col-3{ grid-column:span 3; }
+    .col-8{ grid-column:span 8; }
+    .col-5{ grid-column:span 5; }
+    .col-7{ grid-column:span 7; }
+    @media (max-width: 991px){
+      .col-md-12{ grid-column:span 12!important; }
+      .col-md-6{ grid-column:span 6!important; }
+      .col-md-4{ grid-column:span 4!important; }
+      .col-md-3{ grid-column:span 3!important; }
+    }
+    @media (max-width: 767px){
+      .row{ gap:16px; }
+      .col-sm-12{ grid-column:span 12!important; }
+      .col-sm-6{ grid-column:span 6!important; }
+    }
+
+    /* --------- ХЕДЕР --------- */
+    .header{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .header .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      height:68px;
+    }
+    .brand{ display:flex; align-items:center; gap:16px; }
+    .brand img{ height:28px; }
+    .nav{ display:flex; gap:20px; align-items:center; }
+    .nav a{ color:var(--muted); font-weight:500; }
+    .nav a:hover{ color:var(--text); }
+    .header-cta{
+      display:flex; align-items:center; gap:12px;
+    }
+    .phone{ font-weight:700; white-space:nowrap; }
+    .btn{
+      appearance:none; border:0; cursor:pointer; font-weight:700;
+      padding:12px 18px; border-radius:10px; transition: transform var(--duration), box-shadow var(--duration), background var(--duration);
+    }
+    .btn-primary{ background:var(--accent); color:#fff; }
+    .btn-primary:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
+    .btn-ghost{ background:transparent; border:1px solid var(--line); color:var(--text); }
+    .btn-ghost:hover{ background:#fff; box-shadow:var(--shadow); }
+    .burger{
+      display:none; width:40px; height:40px; border-radius:10px; border:1px solid var(--line); background:#fff;
+      align-items:center; justify-content:center;
+    }
+    .burger span{ width:20px; height:2px; background:var(--text); position:relative; display:block; }
+    .burger span::before, .burger span::after{
+      content:""; position:absolute; left:0; width:20px; height:2px; background:var(--text);
+    }
+    .burger span::before{ top:-6px; } .burger span::after{ top:6px; }
+    @media (max-width: 1024px){
+      .nav{ display:none; position:absolute; left:0; right:0; top:68px; background:#fff; padding:16px; border-bottom:1px solid var(--line); }
+      .nav.open{ display:grid; grid-template-columns:1fr; gap:12px; }
+      .burger{ display:flex; }
+      .header .inner{ height:64px; }
+      .phone{ display:none; }
+    }
+
+    /* --------- ГЕРОЙ --------- */
+    .hero{
+      position:relative; color:#fff; background:#0e2035;
+      min-height:520px; display:flex; align-items:center; isolation:isolate;
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:url('/assets/hero-warehouse.jpg') center/cover no-repeat;
+      opacity:.6; z-index:-2;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,24,40,.65), rgba(10,24,40,.45));
+      z-index:-1;
+    }
+    .hero h1{ font-size:42px; line-height:1.15; margin:0 0 12px; }
+    .hero p.lead{ font-size:18px; color:#e5ecf5; margin:0 0 28px; }
+    .hero .actions{ display:flex; gap:12px; flex-wrap:wrap; }
+    @media (max-width: 767px){
+      .hero{ min-height:420px; }
+      .hero h1{ font-size:30px; }
+    }
+
+    /* --------- БЛОКИ --------- */
+    section{ padding:64px 0; }
+    .section-title{ margin:0 0 24px; font-size:28px; }
+    .muted{ color:var(--muted); }
+
+    /* Иконки преимуществ */
+    .features{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .feature{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:16px;
+      display:flex; gap:12px; align-items:flex-start; min-height:88px; box-shadow:0 2px 8px rgba(0,0,0,.03);
+      opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease;
+    }
+    .feature.visible{ opacity:1; transform:none; }
+    .feature svg{ flex:0 0 28px; }
+    @media (max-width: 991px){ .features{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width: 575px){ .features{ grid-template-columns:1fr; } }
+
+    /* Каталог */
+    .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+      box-shadow:0 4px 16px rgba(0,0,0,.04); display:flex; flex-direction:column;
+    }
+    .card img{ aspect-ratio: 16/9; object-fit:cover; }
+    .card .body{ padding:16px; display:flex; flex-direction:column; gap:10px; flex:1; }
+    .card ul{ margin:0; padding-left:18px; }
+    .card .actions{ margin-top:auto; }
+    @media (max-width: 991px){ .cards{ grid-template-columns:1fr; } }
+
+    /* Лого клиентов */
+    .logos{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:center; }
+    .logos img{ filter:grayscale(100%); opacity:.8; height:40px; margin:auto; }
+    @media (max-width: 767px){ .logos{ grid-template-columns:repeat(2,1fr); } }
+
+    /* Документы */
+    .doc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .doc{ position:relative; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#fff; }
+    .doc img{ aspect-ratio:4/3; object-fit:cover; }
+    .doc .tag{ position:absolute; left:8px; top:8px; background:rgba(31,59,92,.9); color:#fff; padding:4px 8px; border-radius:6px; font-size:12px; }
+    @media (max-width: 991px){ .doc-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width: 575px){ .doc-grid{ grid-template-columns:1fr; } }
+
+    /* География */
+    .geo{ display:grid; grid-template-columns: 1.2fr .8fr; gap:20px; }
+    @media (max-width: 991px){ .geo{ grid-template-columns:1fr; } }
+    .geo .map{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); }
+    .geo .pill{ display:inline-block; border:1px solid var(--line); padding:6px 10px; border-radius:999px; margin-right:8px; margin-bottom:8px; background:#fff; }
+
+    /* Кейсы */
+    .case-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .case{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+    .case img{ aspect-ratio: 16/9; object-fit:cover; }
+    .case .body{ padding:14px; }
+    @media (max-width: 991px){ .case-grid{ grid-template-columns:1fr; } }
+
+    /* CTA */
+    .cta{
+      background:linear-gradient(135deg, #1f3b5c, #0f2741); color:#fff; border-radius:var(--radius);
+      padding:28px; display:grid; grid-template-columns:1.2fr .8fr; gap:20px; align-items:center;
+    }
+    .cta h3{ margin:0 0 8px; font-size:26px; }
+    .cta p{ margin:0 0 16px; color:#d9e3ee; }
+    @media (max-width: 991px){ .cta{ grid-template-columns:1fr; } }
+
+    /* Форма */
+    .form{ display:grid; gap:12px; }
+    .form .row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width: 575px){ .form .row2{ grid-template-columns:1fr; } }
+    .input, .select, .textarea{
+      width:100%; padding:12px 14px; border:1px solid var(--line); background:#fff; border-radius:10px;
+      font:inherit;
+    }
+    .consent{ font-size:12px; color:#e5ecf5; }
+    .consent a{ text-decoration:underline; }
+
+    /* Контакты */
+    .contacts{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; }
+    .contacts .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    @media (max-width: 991px){ .contacts .grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width: 575px){ .contacts .grid{ grid-template-columns:1fr; } }
+
+    /* ФУТЕР */
+    footer{ padding:28px 0 48px; color:var(--muted); }
+    footer .foot{ display:flex; justify-content:space-between; gap:16px; align-items:center; }
+    @media (max-width: 575px){ footer .foot{ flex-direction:column; align-items:flex-start; gap:8px; } }
+
+    /* МОДАЛКИ */
+    .modal{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:24px;
+      background:rgba(10,20,30,.55); z-index:2000;
+    }
+    .modal.open{ display:flex; }
+    .dialog{
+      position:relative; width:100%; max-width:560px; background:#fff; border-radius:16px; padding:20px; box-shadow:var(--shadow);
+    }
+    .dialog h3{ margin:0 0 8px; }
+    .dialog p{ margin:0 0 16px; color:var(--muted); }
+    .close{
+      position:absolute; right:12px; top:12px; background:#fff; border:1px solid var(--line); border-radius:10px;
+      width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+    }
+
+    /* Плавающие мессенджеры */
+    .messengers{
+      position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:10px; z-index:1500;
+    }
+    .messengers a{
+      width:48px; height:48px; border-radius:50%; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow);
+    }
+
+    /* Фиксированная плавающая CTA (мобайл) */
+    .floating-cta{
+      position:fixed; left:0; right:0; bottom:0; padding:12px; background:rgba(255,255,255,.95); border-top:1px solid var(--line); z-index:1200;
+      display:none; gap:12px;
+    }
+    @media (max-width: 575px){ .floating-cta{ display:flex; } }
+
+    /* Анимации (минимальные) */
+    .fade{
+      opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease;
+    }
+    .fade.visible{ opacity:1; transform:none; }
+
+    /* Цветовая дисциплина: ≤6 цветов уже соблюдены токенами */
+  </style>
+</head>
+<body>
+
+<header class="header" role="banner">
+  <div class="container inner">
+    <div class="brand">
+      <a href="#"><img src="/assets/logo-akron.svg" alt="Логотип Акрон Техникс" loading="eager"></a>
+      <img src="/assets/logo-baltkabel.svg" alt="Логотип Балткабель" loading="eager">
+      <span class="muted" aria-label="Аттестация Россетей">
+        <img src="/assets/badge-rosseti.svg" alt="Аттестованы в Россетях" loading="eager" style="height:24px">
+      </span>
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Главное меню">
+      <a href="#catalog">Каталог</a>
+      <a href="#why">Почему мы</a>
+      <a href="#clients">Кому поставляем</a>
+      <a href="#docs">Документы</a>
+      <a href="#geo">География</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#cta">Заявка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="phone" href="tel:+78000000000">+7 (800) 000‑00‑00</a>
+      <button class="btn btn-primary" data-open="modal-kp" data-goal="open_kp_modal">Запросить КП</button>
+      <button class="burger" id="burger" aria-label="Меню"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="Главный экран">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 col-md-12 col-sm-12">
+          <h1>Оптовые поставки СИП, СПЭ и ЖБ‑опор по СЗФО</h1>
+          <p class="lead">Для подрядчиков и монтажных организаций. Аттестация в Россетях, свой склад в&nbsp;Санкт‑Петербурге, отгрузка в день оплаты.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-open="modal-kp" data-goal="open_kp_modal">Запросить КП</button>
+            <button class="btn btn-ghost" data-open="modal-price" data-goal="open_price_modal">Скачать прайс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ МЫ -->
+  <section id="why" aria-labelledby="why-title">
+    <div class="container">
+      <h2 class="section-title" id="why-title">Почему выбирают нас</h2>
+      <div class="features">
+        <!-- 8 пунктов по ТЗ -->
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3z" fill="#1f3b5c"/><path d="M3 7l9-4 9 4" fill="none" stroke="#ff7a00" stroke-width="2"/></svg>
+          <div><strong>Собственный склад</strong><br><span class="muted">Отгрузка в день оплаты</span></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#1f3b5c"/></svg>
+          <div><strong>Аттестованы в Россетях</strong></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18" stroke="#1f3b5c" stroke-width="2"/></svg>
+          <div><strong>Работаем по всему СЗФО</strong></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M4 17h16v3H4zM5 4h14l-2 9H7z" fill="#1f3b5c"/></svg>
+          <div><strong>Оптовые цены</strong><br><span class="muted">От производителя</span></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M4 20l8-16 8 16z" fill="#1f3b5c"/></svg>
+          <div><strong>Подбор под проект</strong><br><span class="muted">По спецификации</span></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M5 3h14v14H5z" fill="#1f3b5c"/><path d="M7 7h10v2H7zM7 11h10v2H7z" fill="#fff"/></svg>
+          <div><strong>Сертификаты и паспорта</strong><br><span class="muted">На всю продукцию</span></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3" fill="#1f3b5c"/><circle cx="12" cy="12" r="3" fill="#1f3b5c"/><circle cx="18" cy="12" r="3" fill="#1f3b5c"/></svg>
+          <div><strong>СИП, СПЭ, арматура, ЖБ‑опоры</strong><br><span class="muted">Постоянно на складе</span></div>
+        </div>
+        <div class="feature fade">
+          <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16" stroke="#ff7a00" stroke-width="2"/><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#1f3b5c" stroke-width="2"/></svg>
+          <div><strong>Возможна отсрочка платежа</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАТАЛОГ -->
+  <section id="catalog" aria-labelledby="catalog-title">
+    <div class="container">
+      <h2 class="section-title" id="catalog-title">Каталог продукции</h2>
+      <div class="cards">
+        <!-- СИП и арматура -->
+        <article class="card fade">
+          <img src="/assets/prod-sip.jpg" alt="СИП и арматура на складе" loading="lazy">
+          <div class="body">
+            <h3>СИП и арматура</h3>
+            <ul>
+              <li>Все типы СИП: от 2×16 до 4×150</li>
+              <li>Анкерные/поддерживающие зажимы, кронштейны, изоляторы</li>
+              <li>Наличие на складе, помощь в подборе по проекту</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-primary" data-open="modal-price" data-goal="open_price_modal" data-product="СИП и арматура">Запросить прайс</button>
+            </div>
+          </div>
+        </article>
+        <!-- СПЭ-кабель -->
+        <article class="card fade">
+          <img src="/assets/prod-spe.jpg" alt="СПЭ-кабель на барабанах" loading="lazy">
+          <div class="body">
+            <h3>СПЭ‑кабель</h3>
+            <ul>
+              <li>Изоляция из сшитого полиэтилена</li>
+              <li>Для подстанций и РУ</li>
+              <li>Сертификаты соответствия, доставка по СЗФО</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-primary" data-open="modal-price" data-goal="open_price_modal" data-product="СПЭ-кабель">Запросить прайс</button>
+            </div>
+          </div>
+        </article>
+        <!-- ЖБ-опоры -->
+        <article class="card fade">
+          <img src="/assets/prod-poles.jpg" alt="Железобетонные опоры СВ95, СВ110, СВ164" loading="lazy">
+          <div class="body">
+            <h3>ЖБ‑опоры</h3>
+            <ul>
+              <li>СВ95, СВ110, СВ164; нестандартные длины под заказ</li>
+              <li>Доставка автотранспортом</li>
+              <li>Документы в день оплаты</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-primary" data-open="modal-price" data-goal="open_price_modal" data-product="ЖБ-опоры">Запросить прайс</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЛЯ КОГО -->
+  <section id="clients" aria-labelledby="clients-title">
+    <div class="container">
+      <h2 class="section-title" id="clients-title">Работаем с теми, кто строит и обслуживает ЛЭП</h2>
+      <div class="row">
+        <div class="col-6 col-md-12">
+          <ul>
+            <li>Подрядчики Россетей</li>
+            <li>Электромонтажные компании</li>
+            <li>Дорожные строители (освещение, сети)</li>
+            <li>Торговые дома и дистрибьюторы</li>
+          </ul>
+        </div>
+      </div>
+      <div class="logos" aria-label="Логотипы клиентов">
+        <img src="/assets/logo-client-1.svg" alt="Логотип клиента 1" loading="lazy">
+        <img src="/assets/logo-client-2.svg" alt="Логотип клиента 2" loading="lazy">
+        <img src="/assets/logo-client-3.svg" alt="Логотип клиента 3" loading="lazy">
+        <img src="/assets/logo-client-4.svg" alt="Логотип клиента 4" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОКУМЕНТЫ -->
+  <section id="docs" aria-labelledby="docs-title">
+    <div class="container">
+      <h2 class="section-title" id="docs-title">Документы и сертификация</h2>
+      <div class="doc-grid">
+        <figure class="doc fade">
+          <img src="/assets/doc-rosseti.jpg" alt="Аттестация Россетей — превью" loading="lazy">
+          <figcaption class="tag">Аттестация Россетей</figcaption>
+        </figure>
+        <figure class="doc fade">
+          <img src="/assets/doc-sert.jpg" alt="Сертификаты соответствия — превью" loading="lazy">
+          <figcaption class="tag">Сертификаты соответствия</figcaption>
+        </figure>
+        <figure class="doc fade">
+          <img src="/assets/doc-passport.jpg" alt="Паспорт качества — пример" loading="lazy">
+          <figcaption class="tag">Паспорта качества</figcaption>
+        </figure>
+        <figure class="doc fade">
+          <img src="/assets/doc-warehouse.jpg" alt="Фото склада и упаковки" loading="lazy">
+          <figcaption class="tag">Склад и упаковка</figcaption>
+        </figure>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn btn-ghost" data-open="modal-docs" data-goal="open_docs_modal">Запросить документы PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГЕОГРАФИЯ -->
+  <section id="geo" aria-labelledby="geo-title">
+    <div class="container">
+      <h2 class="section-title" id="geo-title">География и логистика</h2>
+      <div class="geo">
+        <div class="map">
+          <img src="/assets/map-nwfd.png" alt="Карта СЗФО: регионы поставок" loading="lazy">
+        </div>
+        <div>
+          <p><strong>Отгрузка в течение 1–2 дней по СЗФО.</strong></p>
+          <p class="muted">Доставка собственным транспортом и ТК.</p>
+          <div>
+            <span class="pill">Санкт‑Петербург</span>
+            <span class="pill">Ленинградская область</span>
+            <span class="pill">Вологда</span>
+            <span class="pill">Псков</span>
+            <span class="pill">Новгород</span>
+            <span class="pill">Архангельск</span>
+            <span class="pill">Мурманск</span>
+            <span class="pill">Карелия</span>
+            <span class="pill">Коми</span>
+            <span class="pill">Калининград</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КЕЙСЫ -->
+  <section id="cases" aria-labelledby="cases-title">
+    <div class="container">
+      <h2 class="section-title" id="cases-title">Реальные поставки</h2>
+      <div class="case-grid">
+        <article class="case fade">
+          <img src="/assets/case-sip-10kv.jpg" alt="СИП и арматура для ЛЭП 10 кВ" loading="lazy">
+          <div class="body">
+            <strong>СИП и арматура для ЛЭП 10 кВ, Ленинградская область</strong>
+          </div>
+        </article>
+        <article class="case fade">
+          <img src="/assets/case-poles-m11.jpg" alt="Поставка ЖБ опор для освещения трассы М‑11" loading="lazy">
+          <div class="body">
+            <strong>Поставка ЖБ‑опор для освещения трассы М‑11</strong>
+          </div>
+        </article>
+        <article class="case fade">
+          <img src="/assets/case-complex.jpg" alt="Комплексная поставка СИП и СПЭ, Вологда" loading="lazy">
+          <div class="body">
+            <strong>Комплексная поставка СИП и СПЭ для подрядчика Россетей, Вологда</strong>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h3 id="cta-title">Нужна поставка под объект?</h3>
+          <p>Подготовим КП за 10 минут, согласуем аналоги, доставим со склада.</p>
+        </div>
+        <form class="form" data-form="cta">
+          <div class="row2">
+            <input class="input" type="text" name="name" placeholder="Имя" required aria-label="Имя">
+            <input class="input phone" type="tel" name="phone" placeholder="+7 (___) ___‑__‑__" inputmode="tel" required aria-label="Телефон">
+          </div>
+          <input type="text" name="company" class="input" placeholder="Компания (необязательно)" aria-label="Компания">
+          <!-- honeypot -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+          <label style="display:flex; align-items:center; gap:8px;">
+            <input type="checkbox" required aria-label="Согласие на обработку персональных данных">
+            <span class="consent">Согласен с <a href="/privacy.pdf" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          </label>
+          <button class="btn btn-primary" data-goal="cta_submit">Получить предложение</button>
+          <small class="muted">Мы перезвоним в рабочее время Пн–Пт 9:00–18:00</small>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contacts" aria-labelledby="contacts-title">
+    <div class="container">
+      <h2 class="section-title" id="contacts-title">Контакты</h2>
+      <div class="contacts">
+        <div class="grid">
+          <div><strong>Склад и офис</strong><br>г. Санкт‑Петербург, ул. Примерная, д. 1</div>
+          <div><strong>Телефон</strong><br><a href="tel:+78000000000">+7 (800) 000‑00‑00</a></div>
+          <div><strong>Email</strong><br><a href="mailto:sales@example.ru">sales@example.ru</a></div>
+          <div><strong>Время работы</strong><br>Пн–Пт 9:00–18:00</div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn btn-ghost" href="/files/requisites.pdf" target="_blank" rel="noopener" data-goal="download_requisites">Скачать реквизиты PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>© <span id="year"></span> Акрон Техникс (пример). Все права защищены.</div>
+    <div><a href="/privacy.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a></div>
+  </div>
+</footer>
+
+<!-- Плавающая CTA (мобайл) -->
+<div class="floating-cta">
+  <button class="btn btn-primary" data-open="modal-kp" data-goal="open_kp_modal" style="flex:1">Запросить КП</button>
+  <a class="btn btn-ghost" href="tel:+78000000000" style="flex:1">Позвонить</a>
+</div>
+
+<!-- Модальные окна -->
+<div class="modal" id="modal-kp" role="dialog" aria-modal="true" aria-labelledby="modal-kp-title">
+  <div class="dialog">
+    <button class="close" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modal-kp-title">Запросить коммерческое предложение</h3>
+    <p>Оставьте контакты — вышлем расчёт и сроки в течение 10 минут в рабочее время.</p>
+    <form class="form" data-form="kp">
+      <div class="row2">
+        <input class="input" type="text" name="name" placeholder="Имя" required>
+        <input class="input phone" type="tel" name="phone" placeholder="+7 (___) ___‑__‑__" inputmode="tel" required>
+      </div>
+      <input class="input" type="email" name="email" placeholder="Email (необязательно)">
+      <input class="input" type="text" name="comment" placeholder="Что требуется? (СИП/СПЭ/ЖБ‑опоры)">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+      <label style="display:flex; align-items:center; gap:8px;">
+        <input type="checkbox" required>
+        <span class="muted">Согласен с <a href="/privacy.pdf" target="_blank">политикой конфиденциальности</a></span>
+      </label>
+      <button class="btn btn-primary" data-goal="send_kp_form">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="modal-price" role="dialog" aria-modal="true" aria-labelledby="modal-price-title">
+  <div class="dialog">
+    <button class="close" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modal-price-title">Скачать прайс</h3>
+    <p>Прайс доступен после отправки заявки — дублируем на email/мессенджер.</p>
+    <form class="form" data-form="price">
+      <div class="row2">
+        <input class="input" type="text" name="name" placeholder="Имя" required>
+        <input class="input phone" type="tel" name="phone" placeholder="+7 (___) ___‑__‑__" inputmode="tel" required>
+      </div>
+      <input class="input" type="email" name="email" placeholder="Email (необязательно)">
+      <input class="input" type="text" name="interest" placeholder="Интересующий товар" value="" id="interestInput">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+      <label style="display:flex; align-items:center; gap:8px;">
+        <input type="checkbox" required>
+        <span class="muted">Согласен с <a href="/privacy.pdf" target="_blank">политикой конфиденциальности</a></span>
+      </label>
+      <button class="btn btn-primary" data-goal="send_price_form">Получить прайс</button>
+      <small class="muted">После отправки откроется ссылка на прайс (PDF).</small>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="modal-docs" role="dialog" aria-modal="true" aria-labelledby="modal-docs-title">
+  <div class="dialog">
+    <button class="close" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modal-docs-title">Запросить документы PDF</h3>
+    <p>Пришлём аттестацию, сертификаты и паспорта качества по запросу.</p>
+    <form class="form" data-form="docs">
+      <div class="row2">
+        <input class="input" type="text" name="name" placeholder="Имя" required>
+        <input class="input phone" type="tel" name="phone" placeholder="+7 (___) ___‑__‑__" inputmode="tel" required>
+      </div>
+      <input class="input" type="email" name="email" placeholder="Email (необязательно)">
+      <input class="input" type="text" name="comment" placeholder="Какие документы нужны?">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+      <label style="display:flex; align-items:center; gap:8px;">
+        <input type="checkbox" required>
+        <span class="muted">Согласен с <a href="/privacy.pdf" target="_blank">политикой конфиденциальности</a></span>
+      </label>
+      <button class="btn btn-primary" data-goal="send_docs_form">Запросить</button>
+    </form>
+  </div>
+</div>
+
+<!-- Плавающие кнопки мессенджеров -->
+<div class="messengers" aria-label="Мессенджеры">
+  <a href="https://wa.me/70000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="/assets/ic-wa.svg" alt="WhatsApp" loading="lazy" width="24" height="24">
+  </a>
+  <a href="https://t.me/yourusername" target="_blank" rel="noopener" aria-label="Telegram">
+    <img src="/assets/ic-tg.svg" alt="Telegram" loading="lazy" width="24" height="24">
+  </a>
+</div>
+
+<script>
+  // ================== НАСТРОЙКИ ДЛЯ ИНТЕГРАЦИЙ ==================
+  const BITRIX_WEBHOOK_URL = 'https://your.bitrix24.ru/rest/1/WEBHOOK_TOKEN/crm.lead.add.json'; // TODO: заменить
+  const YANDEX_METRIKA_ID = 00000000; // TODO: заменить
+
+  // ================== БУРГЕР-МЕНЮ ==================
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger?.addEventListener('click', ()=> nav.classList.toggle('open'));
+  nav?.addEventListener('click', e => { if(e.target.tagName==='A'){ nav.classList.remove('open'); }});
+
+  // ================== ГОД В ФУТЕРЕ ==================
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ================== ПЛАВНЫЙ СКРОЛЛ ==================
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if(el){
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+
+  // ================== АНИМАЦИИ ПО СКРОЛЛУ ==================
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  },{ threshold:.15 });
+  document.querySelectorAll('.fade, .feature').forEach(el=>observer.observe(el));
+
+  // ================== МАСКА ТЕЛЕФОНА +7 ==================
+  function maskPhone(value){
+    const digits = value.replace(/\D/g,'').replace(/^8/,'7'); // приводим 8 к 7
+    let res = '+7 (';
+    const d = digits.replace(/^7/,''); // без начального 7
+    res += (d.substring(0,3)).padEnd(3,'_') + ') ';
+    res += (d.substring(3,6)).padEnd(3,'_') + '‑';
+    res += (d.substring(6,8)).padEnd(2,'_') + '‑';
+    res += (d.substring(8,10)).padEnd(2,'_');
+    return res;
+  }
+  function onPhoneInput(e){
+    const pos = e.target.selectionStart;
+    const old = e.target.value;
+    e.target.value = maskPhone(old);
+    // поставить курсор в конец
+    e.target.setSelectionRange(e.target.value.length,e.target.value.length);
+  }
+  document.querySelectorAll('input.phone').forEach(inp=>{
+    inp.value = maskPhone('+7');
+    inp.addEventListener('input', onPhoneInput);
+    inp.addEventListener('focus', ()=> { if(!inp.value) inp.value = maskPhone('+7'); });
+  });
+
+  // ================== МОДАЛКИ ==================
+  document.querySelectorAll('[data-open]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-open');
+      document.getElementById(id)?.classList.add('open');
+      trackGoal(btn.dataset.goal);
+      // Если с карточки каталога — заполняем интерес
+      const prod = btn.getAttribute('data-product');
+      if(id==='modal-price' && prod){
+        const input = document.getElementById('interestInput');
+        if(input){ input.value = prod; }
+      }
+    });
+  });
+  document.querySelectorAll('[data-close]').forEach(btn=>{
+    btn.addEventListener('click', ()=> btn.closest('.modal').classList.remove('open'));
+  });
+  document.querySelectorAll('.modal').forEach(m=>{
+    m.addEventListener('click', e=>{ if(e.target===m) m.classList.remove('open'); });
+  });
+
+  // ================== АНТИСПАМ (HONEYPOT + ВРЕМЯ ЗАПОЛНЕНИЯ) ==================
+  const formStartTimes = new WeakMap();
+  document.querySelectorAll('form[data-form]').forEach(form=>{
+    formStartTimes.set(form, Date.now());
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const target = e.currentTarget;
+      const formType = target.getAttribute('data-form'); // kp | price | docs | cta
+      const data = new FormData(target);
+      // honeypot
+      if(data.get('website')){ alert('Ошибка отправки.'); return; }
+      // антибот по времени (<3с — подозрительно)
+      const started = formStartTimes.get(target) || Date.now();
+      if(Date.now() - started < 3000){ alert('Пожалуйста, заполните форму корректно.'); return; }
+
+      // нормализуем телефон
+      const phoneRaw = (data.get('phone') || '').toString();
+      const phone = phoneRaw.replace(/\D/g,'').replace(/^8/,'7');
+      data.set('phone', phone ? '+'+phone : '');
+
+      // подготовим поля для Bitrix24
+      const payload = {
+        fields: {
+          TITLE: `[Лендинг] ${formType.toUpperCase()} — ${data.get('name') || ''}`,
+          NAME: data.get('name') || '',
+          PHONE: [{VALUE: '+'+phone, VALUE_TYPE:'WORK'}],
+          EMAIL: data.get('email') || '',
+          COMMENTS: (data.get('comment') || data.get('interest') || '') + '',
+          SOURCE_ID: 'WEB',
+          UTM_SOURCE: getUTM('utm_source'),
+          UTM_MEDIUM: getUTM('utm_medium'),
+          UTM_CAMPAIGN: getUTM('utm_campaign'),
+          UTM_CONTENT: getUTM('utm_content'),
+          UTM_TERM: getUTM('utm_term')
+        }
+      };
+
+      try{
+        // Отправка в Bitrix24 (при наличии URL)
+        let ok = true;
+        if(String(BITRIX_WEBHOOK_URL).includes('WEBHOOK_TOKEN')){
+          // заглушка: имитируем успех без реального вебхука
+          console.log('🔧 Укажите реальный BITRIX_WEBHOOK_URL для отправки в CRM.');
+        }else{
+          const resp = await fetch(BITRIX_WEBHOOK_URL, {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload)
+          });
+          ok = resp.ok;
+        }
+        if(!ok) throw new Error('Сетевая ошибка');
+
+        // Цели Метрики
+        if(formType==='kp') trackGoal('send_kp_form');
+        if(formType==='price') trackGoal('send_price_form');
+        if(formType==='docs') trackGoal('send_docs_form');
+        if(formType==='cta') trackGoal('cta_submit');
+
+        // Поведение по типу формы
+        if(formType==='price'){
+          window.open('/files/price.pdf','_blank');
+        }
+        alert('Заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        target.reset();
+        target.closest('.modal')?.classList.remove('open');
+      }catch(err){
+        console.error(err);
+        alert('Не удалось отправить. Попробуйте ещё раз или позвоните нам.');
+      }
+    });
+  });
+
+  // ================== UTM-ПАРАМЕТРЫ ==================
+  function getUTM(key){
+    const url = new URL(location.href);
+    return url.searchParams.get(key) || '';
+  }
+
+  // ================== МЕТРИКА: ТРЕКИНГ КЛИКОВ ==================
+  function trackGoal(name){
+    if(!name) return;
+    try{
+      if(window.ym && YANDEX_METRIKA_ID) ym(YANDEX_METRIKA_ID, 'reachGoal', name);
+      console.log('[Goal]', name);
+    }catch(e){}
+  }
+  document.querySelectorAll('[data-goal]').forEach(el=>{
+    el.addEventListener('click', ()=> trackGoal(el.dataset.goal));
+  });
+
+  // ================== ПРЕДПОЧТЕНИЕ REDUCED-MOTION ==================
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.fade, .feature').forEach(el=> el.classList.add('visible'));
+  }
+
+  // ================== ПОДСТАНОВКА ИНТЕРЕСА ИЗ КАРТОЧЕК ==================
+  document.querySelectorAll('[data-product]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const prod = btn.getAttribute('data-product');
+      const input = document.getElementById('interestInput');
+      if(input) input.value = prod || '';
+    });
+  });
+</script>
+
+<!-- Яндекс.Метрика (вставьте реальный ID) -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){ (m[i].a=m[i].a||[]).push(arguments) };
+    m[i].l=1*new Date(); k=e.createElement(t), a=e.getElementsByTagName(t)[0], k.async=1, k.src=r, a.parentNode.insertBefore(k,a)
+  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  if(YANDEX_METRIKA_ID){
+    ym(YANDEX_METRIKA_ID, "init", {
+      clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true
+    });
+  }
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/00000000" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+
+</body>
+</html>
