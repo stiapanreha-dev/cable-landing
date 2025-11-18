@@ -1,0 +1,5 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="800" fill="#e6ebf2"/>
+  <text x="500" y="400" font-family="Arial" font-size="36" fill="#1f3b5c" text-anchor="middle" font-weight="bold">Карта СЗФО</text>
+  <text x="500" y="450" font-family="Arial" font-size="18" fill="#5a6b7c" text-anchor="middle">Регионы поставок</text>
+</svg>
